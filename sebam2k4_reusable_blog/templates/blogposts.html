@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+	<h3 class="blog-app-section-title">Blog posts:</h3>
+		{% for post in posts %}
+			<div class="blog-app-blog-post">
+				<div class="row">
+					<div class="two columns">
+						<a class="blog-app-post-img" href="#" onclick="location.href={{post.id}}">
+							<img src="{% if post.image %}/media/{{ post.image }}{% else %}http://placehold.it/100{% endif %}" class="img-circle u-max-full-width">
+						</a>
+					</div>
+					<div class="ten columns">
+						<div>{{ post.published_date }}</div>
+						<h4>
+							<a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+						</h4>
+						<p>{{ post.content | truncatewords:34 }}</p>
+						<button onclick="location.href='{% url 'post_detail' post.id %}';">Read More</button>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

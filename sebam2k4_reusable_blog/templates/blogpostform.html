@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <h3>New post</h3>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- look at styling the form manually or 
+        https://docs.djangoproject.com/en/dev/topics/forms/#looping-over-the-form-s-fields
+      -->
+      {{ form.as_p }}
+      <button type="submit">Save</button>
+    </form>
+  </div>
+{% endblock %}

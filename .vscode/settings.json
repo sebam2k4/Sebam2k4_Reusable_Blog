@@ -1,0 +1,4 @@
+{
+  "python.pythonPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+  "restructuredtext.confPath": "d:\\WEB-DEVELOPMENT-LEARNING\\Code Institute\\Stream3\\15-Making-Reusable-Apps\\reusable_blog_app"
+}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="blog-post-detail">
+    {% if post.image %}
+      <img src="/media/{{ post.image }}" class="u-max-full-width">
+    {% endif %}
+    <div>{{ post.published_date }}</div>
+    <h3>{{ post.title }}</h3>
+    <p>Author: {{post.author}}</p>
+    <p>{{ post.content|linebreaks }}</p>
+    <button onclick="location.href='{% url 'post_list' %}'">Back to Blog</button>
+  </div>
+  <p><strong>Views</strong> {{ post.views }} | <strong>Tag</strong> {{ post.tag }}</p>
+  {% if user.is_authenticated %}
+    <button class="btn btn-default" onclick="location.href='{% url 'edit' post.id %}'">Edit</button>
+  {% endif %}
+</div>
+<div class="container">
+    {% load disqus_tags %}
+    {% set_disqus_title post.title %}
+    {% disqus_show_comments %}
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+include LICENSE
+include README.rst
+recursive-include sebam2k4-reusable-blog *.css
+recursive-include sebam2k4-reusable-blog *.html
+recursive-include sebam2k4-reusable-blog *.py
